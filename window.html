@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-	  <script crossorigin="anonymous" src="/js/typeahead.js" type="text/javascript"></script>
+  	<script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="js/typeahead.js" type="text/javascript"></script>
   </head>
   <body>
-    <h1>Yo</h1>
+    <h1>Search movies</h1>
+    <div id="remote">
+	  <input class="typeahead" type="text" placeholder="Oscar winners for Best Picture">
+	</div>
     <a target="_blank" href="http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=vjejqk3x245pnergu7bt6dzs&q=bond&page_limit=10">Here's the API</a>
+	<script src="js/app.js" type="text/javascript"></script>
   </body>
 </html>
