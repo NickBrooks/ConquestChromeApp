@@ -1,6 +1,6 @@
 {
-  "name": "Conquest App!",
-  "description": "My first Chrome App.",
+  "name": "Search Twitter!",
+  "description": "Search Twitter",
   "version": "2",
   "app": {
     "background": {
