@@ -11,3 +11,4 @@ $('#remote .typeahead').typeahead(null, {
   displayKey: 'movies.title',
   source: bestPictures.ttAdapter()
 });
+alert('hello');
