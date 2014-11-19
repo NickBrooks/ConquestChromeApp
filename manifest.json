@@ -1,11 +1,11 @@
 {
-  "name": "Search Twitter!",
-  "description": "Search Twitter",
-  "version": "2",
+  "name": "Conquest Requests",
+  "description": "Conquest Requests",
+  "version": "3",
   "app": {
     "background": {
       "scripts": ["background.js"]
     }
   },
-  "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+  "icons": { "16": "toolbox-16.png", "128": "toolbox-128.png" }
 }

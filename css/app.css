@@ -1,0 +1,15 @@
+h1,h2,h3,h4,h5,h6 {
+	text-transform: uppercase;
+}
+.app-body {
+	margin-top:-40px;
+}
+.table tbody>tr>td{
+    vertical-align: middle;
+}
+.table .btn {
+	margin:0px 1px;
+}
+.table i.fa.fa-arrow-circle-right {
+	color: #304FFE;
+}
