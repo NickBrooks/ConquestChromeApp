@@ -1,8 +1,15 @@
 h1,h2,h3,h4,h5,h6 {
 	text-transform: uppercase;
 }
+#search-icon {
+	color:#fff;
+	margin-top:3px;
+}
 .app-body {
 	margin-top:-40px;
+}
+#add-new {
+	color:#8BC34A;
 }
 .table tbody>tr>td{
     vertical-align: middle;
