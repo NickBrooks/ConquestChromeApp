@@ -57,6 +57,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\AngularFormsApp.js" />
+    <Content Include="app\RequestsForm\requestsController.js" />
+    <Content Include="app\RequestsForm\requestsDirective.js" />
+    <Content Include="app\RequestsForm\requestsService.js" />
+    <Content Include="app\RequestsForm\requestsTemplate.html" />
     <Content Include="background.js" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
