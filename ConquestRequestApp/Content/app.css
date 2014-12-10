@@ -1,12 +1,8 @@
-h1,h2,h3,h4,h5,h6 {
-	text-transform: uppercase;
+.panel-title {
+    font-weight: bold;
 }
-#search-icon {
-	color:#fff;
-	margin-top:3px;
-}
-#add-new {
-	color:#8BC34A;
+#rqLogo {
+    color: #fff;
 }
 .table tbody>tr>td{
     vertical-align: middle;
@@ -15,5 +11,5 @@ h1,h2,h3,h4,h5,h6 {
 	margin:0px 1px;
 }
 .table i.fa.fa-arrow-circle-right {
-	color: #304FFE;
+	color: #0f9d58;
 }

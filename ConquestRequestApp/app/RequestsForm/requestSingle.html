@@ -1,0 +1,55 @@
+﻿<form class="form-horizontal" role="form">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h1 class="text-center">{{editableRequest.ReferenceID}}: <strong>{{editableRequest.Notes}}</strong></h1>
+                <hr />
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Request Information</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <label for="Notes">Notes:</label>
+                        <textarea id="Notes" name="Notes" class="form-control"
+                                  ng-model="editableRequest.Notes"></textarea>
+                        <br />
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="editableRequest.Completed"><span class="ripple"></span><span class="check"></span> Completed
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Requestor Info</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <h3>Requested By</h3>
+                        <hr />
+                        <label for="FirstName">First Name:</label>
+                        <input type="text" id="FirstName" name="FirstName" class="form-control"
+                               ng-model="editableRequest.FirstName" />
+                        <br />
+                        <label for="LastName">Last Name:</label>
+                        <input type="text" id="LastName" name="LastName" class="form-control"
+                               ng-model="editableRequest.LastName" />
+                        <br />
+                        <label for="RequestorEmail">Email:</label>
+                        <input type="text" id="RequestorEmail" name="RequestorEmail" class="form-control"
+                               ng-model="editableRequest.RequestorEmail" />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="btn-group">
+                        <input type="button" class="btn btn-material-grey" value="Cancel Changes" ng-click="resetRequestForm()" />
+                        <input type="button" class="btn btn-material-lightgreen" value="Submit" ng-click="submitRequestForm()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
