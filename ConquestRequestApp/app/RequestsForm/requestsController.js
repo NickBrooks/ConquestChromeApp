@@ -25,16 +25,21 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
     function ($scope, $routeParams, $http, $window) {
 
         //get request if param Set
-        Url = apiUrl + 'request/' + $routeParams.requestID + apiSubscription;
-        $http.get(Url).success(function (request) {
-            console.log(request);
-            $scope.request = request;
+        $scope.Url = apiUrl + 'request/' + $routeParams.requestID + apiSubscription;
 
-            //copy request scope to revert reset request form
-            $scope.editableRequest = angular.copy($scope.request);
-        }).error(function (error) {
-            console.log(error);
-        });
+        $scope.getRequest = function () {
+            reqActive(true);
+            $http.get($scope.Url).success(function (request) {
+                reqActive(false);
+                $scope.request = request;
+
+                //copy request scope to revert reset request form
+                $scope.editableRequest = angular.copy($scope.request);
+            }).error(function (error) {
+                reqError(true);
+                console.log(error);
+            });
+        };
 
         //reset request form
         $scope.resetRequestForm = function () {
@@ -43,13 +48,20 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
 
         //submit request form
         $scope.submitRequestForm = function () {
-            $http.post(apiUrl + 'request/' + apiSubscription, JSON.stringify($scope.editableRequest)).
+            reqActive(true);
+
+            $http.post(apiUrl + 'request/' + apiSubscription, $scope.editableRequest).
               success(function (data) {
+                  reqActive(false);
                   console.log('Success: ' + data);
                   $scope.request = angular.copy($scope.editableRequest);
               }).
               error(function (error) {
+                  reqError(true);
                   console.log('Error: ' + error);
               });
         };
+
+        //run getRequest on page load
+        $scope.getRequest();
     }]);

@@ -1,10 +1,9 @@
-﻿var app = angular.module('requestApp', ['ngRoute', 'appControllers']);
+﻿var app = angular.module('requestApp', ['ngRoute', 'appControllers', 'ngStorage']);
 var appControllers = angular.module('appControllers', []);
 
 //
 //Declare Global Variables
 //
-
 //URL Set up
 var apiBaseUrl = 'https://conquestapi.azure-api.net/test/';
 var apiConnection = 'faulkner%20CityOfDarwin/';
@@ -29,3 +28,33 @@ app.config(['$routeProvider',
             redirectTo: '/home'
         });
   }]);
+
+//
+//Common Functions
+//
+
+//Show loader
+function reqActive(active) {
+    console.log('Active: ' + active);
+    activeIcon = document.getElementById('reqActive');
+
+    if (active == true) {
+        reqError(false);
+        $("reqActive").removeClass("hidden");
+    }
+    else {
+        $("reqActive").addClass("hidden");
+    }
+}
+
+function reqError(error) {
+    console.log('Error: ' + error);
+    errorIcon = document.getElementById('reqError');
+
+    if (error == true) {
+        reqActive(false);
+        $("reqError").removeClass("hidden");
+    } else {
+        $("reqActive").addClass("hidden");
+    }
+}
