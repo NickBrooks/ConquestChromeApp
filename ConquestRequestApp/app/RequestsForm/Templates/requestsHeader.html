@@ -1,0 +1,42 @@
+﻿<nav class="navbar navbar-default navbar-success" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">
+                <img alt="Brand" src="Images/conquestLogo.svg" height="35" width="135" />
+            </a>
+            <div class="navbar-left">
+                <h3 id="rqLogo">
+                    Requests
+                    <span ng-if="reqStatus == 'loading'">
+                        <i class="fa fa-spin fa-spinner"></i>
+                    </span>
+                    <span ng-if="reqStatus == 'error'">
+                        <i class="fa fa-exclamation-triangle" style="color: #FFE082"></i>
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" ng-if="reqStatus == 'error'">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="panel panel-danger" ng-if="requests != 0">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> Error</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <h4><strong>Status</strong></h4>
+                    <p>{{reqError.Status}}</p>
+                    <h4><strong>Headers</strong></h4>
+                    <p>{{reqError.Headers}}</p>
+                    <h4><strong>Config</strong></h4>
+                    <p>{{reqError.Config}}</p>
+                    <h4><strong>Msg</strong></h4>
+                    <p>{{reqError.Msg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

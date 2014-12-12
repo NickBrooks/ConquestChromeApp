@@ -1,4 +1,9 @@
-﻿var app = angular.module('requestApp', ['ngRoute', 'appControllers', 'ngStorage']);
+﻿var app = angular.module('requestApp', [
+    'ngRoute',
+    'appControllers',
+    'ngStorage'
+]);
+
 var appControllers = angular.module('appControllers', []);
 
 //
@@ -17,44 +22,14 @@ app.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider.
         when('/home', {
-            templateUrl: '/app/RequestsForm/requestsList.html',
+            templateUrl: '/app/RequestsForm/Templates/requestsList.html',
             controller: 'requestListController'
         }).
         when('/request/:requestID', {
-            templateUrl: '/app/RequestsForm/requestSingle.html',
+            templateUrl: '/app/RequestsForm/Templates/requestSingle.html',
             controller: 'requestController'
         }).
         otherwise({
             redirectTo: '/home'
         });
   }]);
-
-//
-//Common Functions
-//
-
-//Show loader
-function reqActive(active) {
-    console.log('Active: ' + active);
-    activeIcon = document.getElementById('reqActive');
-
-    if (active == true) {
-        reqError(false);
-        $("reqActive").removeClass("hidden");
-    }
-    else {
-        $("reqActive").addClass("hidden");
-    }
-}
-
-function reqError(error) {
-    console.log('Error: ' + error);
-    errorIcon = document.getElementById('reqError');
-
-    if (error == true) {
-        reqActive(false);
-        $("reqError").removeClass("hidden");
-    } else {
-        $("reqActive").addClass("hidden");
-    }
-}
