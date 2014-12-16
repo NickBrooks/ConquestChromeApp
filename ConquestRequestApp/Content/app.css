@@ -1,20 +1,49 @@
 .panel-title {
     font-weight: bold;
 }
+
 #rqLogo {
     color: #fff;
-    margin-top:17px;
+    margin-top: 17px;
 }
-#rqLogo > span {
-    margin-left:10px;
-    font-size:18px;
+
+    #rqLogo > span {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+
+/*RequestList*/
+.requestList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
-.table tbody>tr>td{
-    vertical-align: middle;
-}
-.table .btn {
-	margin:0px 1px;
-}
-.table i.fa.fa-arrow-circle-right {
-	color: #0f9d58;
-}
+
+    .requestList a {
+        color: #4e5758;
+    }
+
+    .requestList li {
+        padding: 12px 0;
+    }
+
+        .requestList li:nth-of-type(even) {
+            background: #f2f2f2;
+        }
+
+    .requestList .completed {
+        margin: 0 5px;
+    }
+
+    .requestList .notes {
+        font-weight: 500;
+        color: #455A64;
+    }
+
+    .requestList .name {
+        color: #858585;
+    }
+
+    .requestList .referenceID {
+        margin: 0 5px;
+    }

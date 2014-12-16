@@ -10,10 +10,15 @@ var appControllers = angular.module('appControllers', []);
 //Declare Global Variables
 //
 //URL Set up
-var apiBaseUrl = 'https://conquestapi.azure-api.net/test/';
-var apiConnection = 'faulkner%20CityOfDarwin/';
-var apiUrl = apiBaseUrl + apiConnection;
-var apiSubscription = '?subscription-key=3f2fe91ca4534c8f88345e98e4e9552b';
+var apiBaseUrl = 'https://conquestapi.azure-api.net/dev/api/';
+var apiDataSource = 'faulkner%20CityOfDarwin';
+var apiSubscriptionKey = '3f2fe91ca4534c8f88345e98e4e9552b';
+
+//build URL
+function apiURL(apiCtrl) {
+    apiURLReturn = apiBaseUrl + apiCtrl + '?dataSource=' + apiDataSource + '&subscription-key=' + apiSubscriptionKey;
+    return apiURLReturn;
+}
 
 //
 //Routing

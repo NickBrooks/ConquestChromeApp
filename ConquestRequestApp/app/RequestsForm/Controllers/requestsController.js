@@ -7,13 +7,12 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
     function ($scope, $http, $rootScope) {
         $scope.lastName = 'Brooks';
         $scope.requests = [];
-        Url = apiUrl + 'requests/' + $scope.lastName + apiSubscription;
 
         //fetch requests
         $scope.fetchRequests = function (lastName) {
             $rootScope.reqStatus = 'loading';
 
-            $http.get(Url).success(function (requests) {
+            $http.get(apiURL('requests/' + $scope.lastName)).success(function (requests) {
                 $rootScope.reqStatus = '';
                 $scope.requests = requests;
             }).error(function (data, status, headers, config) {
@@ -39,14 +38,13 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
 //***************************************
 appControllers.controller('requestController', ['$scope', '$routeParams', '$http', '$window', '$rootScope',
     function ($scope, $routeParams, $http, $window, $rootScope) {
-        $scope.Url = apiUrl + 'request/' + $routeParams.requestID + apiSubscription;
         $scope.editableRequest = [];
         $scope.request = [];
 
         //get request
         $scope.getRequest = function () {
             $rootScope.reqStatus = 'loading';
-            $http.get($scope.Url).success(function (request) {
+            $http.get(apiURL('request/' + $routeParams.requestID)).success(function (request) {
                 $rootScope.reqStatus = '';
                 $scope.request = request;
 
@@ -72,7 +70,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         $scope.submitRequestForm = function () {
             $rootScope.reqStatus = 'loading';
 
-            $http.post(apiUrl + 'request/' + apiSubscription, $scope.editableRequest).
+            $http.post(apiURL('request/'), $scope.editableRequest).
               success(function (data) {
                   $rootScope.reqStatus = '';
                   $scope.request = angular.copy($scope.editableRequest);

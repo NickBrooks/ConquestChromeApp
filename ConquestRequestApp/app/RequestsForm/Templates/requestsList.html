@@ -6,24 +6,21 @@
                     <h3 class="panel-title">Requests <strong>({{requests.length}})</strong></h3>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped table-hover ">
-                        <thead>
-                            <tr>
-                                <th>Ref ID</th>
-                                <th>Title</th>
-                                <th>Submitted By</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="request in requests">
-                                <td>{{request.ReferenceID}}</td>
-                                <td>{{request.Notes}}</td>
-                                <td>{{request.FirstName}} {{request.LastName}}</td>
-                                <td><a href="/#/request/{{request.ID}}" class="pull-right"><i class="fa fa-arrow-circle-right fa-lg"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <ul class="requestList">
+                        <li ng-repeat="request in requests">
+                            <span class="completed" ng-if="request.Completed">
+                                <i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i>
+                            </span>
+                            <span class="completed" ng-if="!request.Completed">
+                                <i class="fa fa-square fa-lg" style="color:#ccc"></i>
+                            </span>
+                            <a href="/#/request/{{request.ID}}">
+                                <span class="notes">{{request.Notes}}</span>
+                                <span class="name">{{request.FirstName}} {{request.LastName}}</span>
+                                <span class="referenceID pull-right">{{request.ReferenceID}}</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
