@@ -8,16 +8,20 @@
                 <div class="panel-body">
                     <ul class="requestList">
                         <li ng-repeat="request in requests">
-                            <span class="completed" ng-if="request.Completed">
-                                <i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i>
+                            <span class="completed" ng-if="request.Complete">
+                                <a ng-click="completeRequest(request.ID)">
+                                    <i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i>
+                                </a>
                             </span>
-                            <span class="completed" ng-if="!request.Completed">
-                                <i class="fa fa-square fa-lg" style="color:#ccc"></i>
+                            <span class="completed" ng-if="!request.Complete">
+                                <a ng-click="reverseCompleteRequest(request.ID)">
+                                    <i class="fa fa-square fa-lg" style="color:#ccc"></i>
+                                </a>
                             </span>
-                            <a href="/#/request/{{request.ID}}">
+                            <a ng-href="/#/request/{{request.ID}}">
                                 <span class="notes">{{request.Notes}}</span>
                                 <span class="name">{{request.FirstName}} {{request.LastName}}</span>
-                                <span class="referenceID pull-right">{{request.ReferenceID}}</span>
+                                <span class="referenceID pull-right hidden-xs">{{request.ReferenceID}}</span>
                             </a>
                         </li>
                     </ul>

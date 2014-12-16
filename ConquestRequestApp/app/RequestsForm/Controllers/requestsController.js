@@ -12,7 +12,7 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
         $scope.fetchRequests = function (lastName) {
             $rootScope.reqStatus = 'loading';
 
-            $http.get(apiURL('requests/' + $scope.lastName)).success(function (requests) {
+            $http.get(apiURL('byLastName/' + $scope.lastName)).success(function (requests) {
                 $rootScope.reqStatus = '';
                 $scope.requests = requests;
             }).error(function (data, status, headers, config) {
@@ -24,6 +24,11 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
                     Config: config
                 };
             });
+        };
+
+        //complete request
+        $scope.completeRequest = function (ID) {
+            console.log('Here ID: ' + ID);
         };
 
         //run fetch on page load
@@ -44,7 +49,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //get request
         $scope.getRequest = function () {
             $rootScope.reqStatus = 'loading';
-            $http.get(apiURL('request/' + $routeParams.requestID)).success(function (request) {
+            $http.get(apiURL('ID/' + $routeParams.requestID)).success(function (request) {
                 $rootScope.reqStatus = '';
                 $scope.request = request;
 
@@ -70,7 +75,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         $scope.submitRequestForm = function () {
             $rootScope.reqStatus = 'loading';
 
-            $http.post(apiURL('request/'), $scope.editableRequest).
+            $http.post(apiURL('send/'), $scope.editableRequest).
               success(function (data) {
                   $rootScope.reqStatus = '';
                   $scope.request = angular.copy($scope.editableRequest);

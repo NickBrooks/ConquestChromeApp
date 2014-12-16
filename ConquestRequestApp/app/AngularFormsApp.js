@@ -10,7 +10,7 @@ var appControllers = angular.module('appControllers', []);
 //Declare Global Variables
 //
 //URL Set up
-var apiBaseUrl = 'https://conquestapi.azure-api.net/dev/api/';
+var apiBaseUrl = 'https://conquestapi.azure-api.net/dev/requests/';
 var apiDataSource = 'faulkner%20CityOfDarwin';
 var apiSubscriptionKey = '3f2fe91ca4534c8f88345e98e4e9552b';
 
