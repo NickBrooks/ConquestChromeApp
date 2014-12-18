@@ -69,7 +69,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //reset request form
         $scope.resetRequestForm = function () {
             $scope.editableRequest = angular.copy($scope.request);
-            snackAlert('Form reset', 'check');
+            snackAlert('Form reset', 'undo');
         };
 
         //submit request form
@@ -90,6 +90,40 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
                       Config: config
                   };
               });
+        };
+
+        //change the request completion
+        $scope.updateCompletion = function () {
+            if ($scope.editableRequest.Complete) {
+                $http.post(apiURL('complete/' + $scope.request.ID)).
+                    success(function (data) {
+                        snackAlert($scope.request.ReferenceID + ' completed.', 'check');
+                    }).
+                    error(function (data, status, headers, config) {
+                        $rootScope.reqStatus = 'error';
+                        $rootScope.reqError = {
+                            Headers: headers,
+                            Msg: data,
+                            Status: status,
+                            Config: config
+                        };
+                    });
+
+            } else {
+                $http.post(apiURL('reverseComplete/' + $scope.request.ID)).
+                    success(function (data) {
+                        snackAlert($scope.request.ReferenceID + ' reverse completed.', 'undo');
+                    }).
+                    error(function (data, status, headers, config) {
+                        $rootScope.reqStatus = 'error';
+                        $rootScope.reqError = {
+                            Headers: headers,
+                            Msg: data,
+                            Status: status,
+                            Config: config
+                        };
+                    });
+            };
         };
 
         //run getRequest on page load

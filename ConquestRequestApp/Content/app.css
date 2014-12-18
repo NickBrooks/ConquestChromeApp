@@ -72,11 +72,12 @@
 
 /*Snackbar*/
 .snackbar {
-    font-weight: bold;
-    color: #8BC34A;
+    font-weight: 500;
+    color: #fff;
     border-radius: 5px;
 }
 
     .snackbar .fa {
         margin-right: 5px;
+        color: #8BC34A;
     }

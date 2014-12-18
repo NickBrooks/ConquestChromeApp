@@ -50,7 +50,7 @@
                     <div class="panel-body">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" ng-model="editableRequest.Complete"><span class="ripple"></span><span class="check"></span> Completed
+                                <input type="checkbox" ng-model="editableRequest.Complete" ng-change="updateCompletion()"><span class="ripple"></span><span class="check"></span> Completed
                             </label>
                             <p class="hint">Check the box to complete the request.</p>
                         </div>                        
