@@ -88,7 +88,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
               success(function (data) {
                   $rootScope.reqStatus = '';
                   $scope.request = angular.copy($scope.editableRequest);
-                  snackAlert("Where's me toast!", "rocket");
+                  snackAlert("Request updated!", "rocket");
               }).
               error(function (data, status, headers, config) {
                   $rootScope.reqStatus = 'error';
