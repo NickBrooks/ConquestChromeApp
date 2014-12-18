@@ -72,6 +72,7 @@
     <Content Include="Content\material-wfont.min.css" />
     <Content Include="Content\material.min.css" />
     <Content Include="Content\ripples.min.css" />
+    <Content Include="Content\snackbar.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\conquestLogo.png" />
     <Content Include="Images\conquestLogo.svg" />
@@ -855,6 +856,7 @@
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\ngStorage.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\snackbar.min.js" />
     <Content Include="Webfonts\glyphicons-halflings-regular.svg" />
     <Content Include="Webfonts\Material-Design-Icons.svg" />
     <None Include="Properties\PublishProfiles\conquestRequest - FTP.pubxml" />

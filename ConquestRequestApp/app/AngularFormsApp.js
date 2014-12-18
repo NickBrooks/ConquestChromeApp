@@ -38,3 +38,13 @@ app.config(['$routeProvider',
             redirectTo: '/home'
         });
   }]);
+
+//
+//Snackbar
+//
+function snackAlert (content, icon) {
+    $.snackbar({
+        content: '<i class="fa fa-lg fa-' + icon + '"></i> ' + content,
+        timeout: 3000
+    });
+}

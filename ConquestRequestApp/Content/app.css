@@ -1,7 +1,24 @@
+/*Generic*/
 .panel-title {
     font-weight: bold;
 }
 
+.panel-body {
+    padding: 20px;
+}
+
+.app label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.checkbox .hint {
+    padding-left: 45px;
+    padding-top: 20px;
+    font-weight: 400;
+}
+
+/*Header*/
 #rqLogo {
     color: #fff;
     margin-top: 17px;
@@ -46,4 +63,20 @@
 
     .requestList .referenceID {
         margin: 0 5px;
+    }
+
+/*Request Form*/
+#rqForm .fa-lg {
+    margin-right: 5px;
+}
+
+/*Snackbar*/
+.snackbar {
+    font-weight: bold;
+    color: #8BC34A;
+    border-radius: 5px;
+}
+
+    .snackbar .fa {
+        margin-right: 5px;
     }

@@ -69,6 +69,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //reset request form
         $scope.resetRequestForm = function () {
             $scope.editableRequest = angular.copy($scope.request);
+            snackAlert('Form reset', 'check');
         };
 
         //submit request form
