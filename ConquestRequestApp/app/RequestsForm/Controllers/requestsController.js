@@ -75,11 +75,20 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //submit request form
         $scope.submitRequestForm = function () {
             $rootScope.reqStatus = 'loading';
-
+            var updatedFields = [];
+            for(var k in $scope.request)
+            {
+                if ($scope.request[k] !== $scope.editableRequest[k])
+                {
+                    updatedFields.push(k);
+                }
+            }
+            $scope.editableRequest['_UpdatedFields'] = updatedFields;
             $http.post(apiURL('send/'), $scope.editableRequest).
               success(function (data) {
                   $rootScope.reqStatus = '';
                   $scope.request = angular.copy($scope.editableRequest);
+                  snackAlert("Where's me toast!", "rocket");
               }).
               error(function (data, status, headers, config) {
                   $rootScope.reqStatus = 'error';

@@ -16,7 +16,16 @@ var apiSubscriptionKey = '3f2fe91ca4534c8f88345e98e4e9552b';
 
 //build URL
 function apiURL(apiCtrl) {
-    apiURLReturn = apiBaseUrl + apiCtrl + '?dataSource=' + apiDataSource + '&subscription-key=' + apiSubscriptionKey;
+    var host = window.localStorage.getItem("apiHostName");
+    if (host == "localhost") {
+        apiURLReturn = apiBaseUrl + apiCtrl + '?dataSource=' + apiDataSource + '&subscription-key=' + apiSubscriptionKey;
+    }
+    else if (host == "paine"){
+        apiURLReturn = "http://paine/requests/" + apiCtrl + '?dataSource=' + apiDataSource
+    }
+    else {
+        apiURLReturn = apiBaseUrl + apiCtrl + '?dataSource=' + apiDataSource + '&subscription-key=' + apiSubscriptionKey;
+    }
     return apiURLReturn;
 }
 
@@ -34,6 +43,10 @@ app.config(['$routeProvider',
             templateUrl: '/app/RequestsForm/Templates/requestSingle.html',
             controller: 'requestController'
         }).
+          when('/request/new', {
+              templateUrl: '/app/RequestsForm/Templates/requestSingle.html',
+              controller: 'requestController'
+          }).
         otherwise({
             redirectTo: '/home'
         });
