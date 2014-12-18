@@ -32,17 +32,17 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="panel panel-primary panel-material-indigo">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><strong><i class="fa fa-newspaper-o fa-lg"></i> Request Information</strong></h3>
-                        </div>
-                        <div class="panel-body">
-                            <label for="Notes">Notes:</label>
-                            <textarea id="Notes" name="Notes" class="form-control"
-                                      ng-model="editableRequest.Notes"></textarea>
-                            <br />
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><strong><i class="fa fa-newspaper-o fa-lg"></i> Request Information</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                <label for="Notes">Notes:</label>
+                                <textarea id="Notes" name="Notes" class="form-control"
+                                          ng-model="editableRequest.Notes"></textarea>
+                                <br />
+                            </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="panel panel-primary panel-material-indigo">
@@ -61,11 +61,13 @@
                     </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12" ng-if="editableRequest != request">
-                        <div class="text-center">
-                            <div class="btn-group">
-                                <button class="btn btn-material-grey" ng-click="resetRequestForm()">Cancel Changes</button>
-                                <button class="btn btn-material-lightgreen" ng-click="submitRequestForm()">Save</button>
-                            </div>
+                        <div class="text-center action-btn-group">
+                            <label class="material-grey">
+                                <button class="btn btn-fab btn-raised btn-material-grey" ng-click="resetRequestForm()"><i class="fa fa-undo"></i></button> Cancel
+                            </label>
+                            <label class="material-teal">
+                                <button class="btn btn-fab btn-raised btn-material-teal" ng-click="submitRequestForm()"><i class="fa fa-floppy-o"></i></button> Save
+                            </label>
                         </div>
                     </div>
                 </div>
