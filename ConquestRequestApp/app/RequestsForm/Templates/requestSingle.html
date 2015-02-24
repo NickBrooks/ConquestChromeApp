@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <h1 class="text-center"><span ng-if="editableRequest.Complete"><i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i> </span>{{editableRequest.ReferenceID}}: <strong>{{editableRequest.Notes}}</strong></h1>
+                <h1 class="text-center"><span ng-if="editableRequest.complete"><i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i> </span>{{editableRequest.referenceID}}: <strong>{{editableRequest.notes}}</strong></h1>
                 <hr />
             </div>
 
@@ -15,15 +15,15 @@
                     <div class="panel-body">
                         <label for="FirstName">First Name:</label>
                         <input type="text" id="FirstName" name="FirstName" class="form-control"
-                               ng-model="editableRequest.FirstName" />
+                               ng-model="editableRequest.firstName" />
                         <br />
                         <label for="LastName">Last Name:</label>
                         <input type="text" id="LastName" name="LastName" class="form-control"
-                               ng-model="editableRequest.LastName" />
+                               ng-model="editableRequest.lastName" />
                         <br />
                         <label for="RequestorEmail">Email:</label>
                         <input type="text" id="RequestorEmail" name="RequestorEmail" class="form-control"
-                               ng-model="editableRequest.RequestorEmail" />
+                               ng-model="editableRequest.requestorEmail" />
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                             <div class="panel-body">
                                 <label for="Notes">Notes:</label>
                                 <textarea id="Notes" name="Notes" class="form-control"
-                                          ng-model="editableRequest.Notes"></textarea>
+                                          ng-model="editableRequest.notes"></textarea>
                                 <br />
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="panel-body">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" ng-model="editableRequest.Complete" ng-change="updateCompletion()"><span class="ripple"></span><span class="check"></span> Completed
+                                        <input type="checkbox" ng-model="editableRequest.complete" ng-change="updateCompletion()"><span class="ripple"></span><span class="check"></span> Completed
                                     </label>
                                     <p class="hint">Check the box to complete the request.</p>
                                 </div>

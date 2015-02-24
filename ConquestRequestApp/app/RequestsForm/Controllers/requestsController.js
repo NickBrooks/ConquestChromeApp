@@ -3,7 +3,7 @@
 //requestList Controller
 //
 //***************************************
-appControllers.controller('requestListController', ['$scope', '$http', '$rootScope',
+app.controller('requestListController', ['$scope', '$http', '$rootScope',
     function ($scope, $http, $rootScope) {
         $scope.lastName = 'Brooks';
         $scope.requests = [];
@@ -12,9 +12,10 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
         $scope.fetchRequests = function (lastName) {
             $rootScope.reqStatus = 'loading';
 
-            $http.get(apiURL('byLastName/' + $scope.lastName)).success(function (requests) {
+            $http.get(apiURL('requests/byLastName/' + $scope.lastName)).success(function (requests) {
                 $rootScope.reqStatus = '';
                 $scope.requests = requests;
+                console.log($scope.requests);
             }).error(function (data, status, headers, config) {
                 $rootScope.reqStatus = 'error';
                 $rootScope.reqError = {
@@ -41,7 +42,7 @@ appControllers.controller('requestListController', ['$scope', '$http', '$rootSco
 //request Controller
 //
 //***************************************
-appControllers.controller('requestController', ['$scope', '$routeParams', '$http', '$window', '$rootScope',
+app.controller('requestController', ['$scope', '$routeParams', '$http', '$window', '$rootScope',
     function ($scope, $routeParams, $http, $window, $rootScope) {
         $scope.editableRequest = [];
         $scope.request = [];
@@ -49,7 +50,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //get request
         $scope.getRequest = function () {
             $rootScope.reqStatus = 'loading';
-            $http.get(apiURL('ID/' + $routeParams.requestID)).success(function (request) {
+            $http.get(apiURL('requests/ID/' + $routeParams.requestID)).success(function (request) {
                 $rootScope.reqStatus = '';
                 $scope.request = request;
 
@@ -84,7 +85,7 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
                 }
             }
             $scope.editableRequest['_UpdatedFields'] = updatedFields;
-            $http.post(apiURL('send/'), $scope.editableRequest).
+            $http.post(apiURL('requests/send/'), $scope.editableRequest).
               success(function (data) {
                   $rootScope.reqStatus = '';
                   $scope.request = angular.copy($scope.editableRequest);
@@ -104,9 +105,9 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
         //change the request completion
         $scope.updateCompletion = function () {
             if ($scope.editableRequest.Complete) {
-                $http.post(apiURL('complete/' + $scope.request.ID)).
+                $http.post(apiURL('requests/complete/' + $scope.request.id)).
                     success(function (data) {
-                        snackAlert($scope.request.ReferenceID + ' completed.', 'check');
+                        snackAlert($scope.request.referenceID + ' completed.', 'check');
                     }).
                     error(function (data, status, headers, config) {
                         $rootScope.reqStatus = 'error';
@@ -119,9 +120,9 @@ appControllers.controller('requestController', ['$scope', '$routeParams', '$http
                     });
 
             } else {
-                $http.post(apiURL('reverseComplete/' + $scope.request.ID)).
+                $http.post(apiURL('requests/reverseComplete/' + $scope.request.id)).
                     success(function (data) {
-                        snackAlert($scope.request.ReferenceID + ' reverse completed.', 'undo');
+                        snackAlert($scope.request.referenceID + ' reverse completed.', 'undo');
                     }).
                     error(function (data, status, headers, config) {
                         $rootScope.reqStatus = 'error';

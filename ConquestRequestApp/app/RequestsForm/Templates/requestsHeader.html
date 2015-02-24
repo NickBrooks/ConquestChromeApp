@@ -1,40 +1,56 @@
-﻿<nav class="navbar navbar-default navbar-success" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" ng-href="#/">
-                <img alt="Brand" src="https://conquestsolutions.blob.core.windows.net/public/conquestLogo.svg" height="35" width="135" />
-            </a>
-            <div class="navbar-left">
-                <h3 id="rqLogo">
-                    Requests
-                    <span ng-if="reqStatus == 'loading'">
-                        <i class="fa fa-spin fa-spinner"></i>
-                    </span>
-                    <span ng-if="reqStatus == 'error'">
-                        <i class="fa fa-exclamation-triangle" style="color: #FFE082"></i>
-                    </span>
-                </h3>
+﻿<div ng-controller="headerController">
+    <nav class="navbar navbar-default navbar-success" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-href="#/">
+                    <img alt="Brand" src="https://conquestsolutions.blob.core.windows.net/public/conquestLogo.svg" height="35" width="135" />
+                </a>
+                <div class="navbar-left">
+                    <h3 id="rqLogo">
+                        Requests
+                        <span ng-if="reqStatus == 'loading'">
+                            <i class="fa fa-spin fa-spinner"></i>
+                        </span>
+                        <span ng-if="reqStatus == 'error'">
+                            <i class="fa fa-exclamation-triangle" style="color: #FFE082"></i>
+                        </span>
+                    </h3>
+                </div>
+            </div>
+            <div ng-if="userName" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="javascript:void" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{userName}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void"><i class="fa fa-paw"></i> Action 1</a></li>
+                            <li><a href="javascript:void"><i class="fa fa-paw"></i> Action 2</a></li>
+                            <li><a href="javascript:void"><i class="fa fa-paw"></i> Action 3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void" ng-click="logOut()"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<div class="container-fluid" ng-if="reqStatus == 'error'">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="panel panel-danger" ng-if="requests != 0">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> Error</strong></h3>
-                </div>
-                <div class="panel-body">
-                    <h4><strong>Status</strong></h4>
-                    <p>{{reqError.Status}}</p>
-                    <h4><strong>Headers</strong></h4>
-                    <p>{{reqError.Headers}}</p>
-                    <h4><strong>Config</strong></h4>
-                    <p>{{reqError.Config}}</p>
-                    <h4><strong>Msg</strong></h4>
-                    <p>{{reqError.Msg}}</p>
+    <div class="container-fluid" ng-if="reqStatus == 'error' && reqError.Status != 401">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="panel panel-danger" ng-if="requests != 0">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> Error</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <h4><strong>Status</strong></h4>
+                        <p>{{reqError.Status}}</p>
+                        <h4><strong>Headers</strong></h4>
+                        <p>{{reqError.Headers}}</p>
+                        <h4><strong>Config</strong></h4>
+                        <p>{{reqError.Config}}</p>
+                        <h4><strong>Msg</strong></h4>
+                        <p>{{reqError.Msg}}</p>
+                    </div>
                 </div>
             </div>
         </div>

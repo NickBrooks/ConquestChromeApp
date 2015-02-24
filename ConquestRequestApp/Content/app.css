@@ -49,6 +49,10 @@
         font-size: 18px;
     }
 
+.dropdown-menu i {
+    margin-right: 5px;
+}
+
 /*RequestList*/
 .requestList {
     list-style-type: none;

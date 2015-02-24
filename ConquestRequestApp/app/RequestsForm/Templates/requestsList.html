@@ -10,20 +10,20 @@
                 <div class="panel-body">
                     <ul class="requestList">
                         <li ng-repeat="request in requests | filter:searchText">
-                            <span class="completed" ng-if="request.Complete">
-                                <a ng-click="completeRequest(request.ID)">
+                            <span class="completed" ng-if="request.completed">
+                                <a ng-click="completeRequest(request.id)">
                                     <i class="fa fa-check-square fa-lg" style="color:#4CAF50"></i>
                                 </a>
                             </span>
-                            <span class="completed" ng-if="!request.Complete">
-                                <a ng-click="reverseCompleteRequest(request.ID)">
+                            <span class="completed" ng-if="!request.completed">
+                                <a ng-click="reverseCompleteRequest(request.id)">
                                     <i class="fa fa-square fa-lg" style="color:#ccc"></i>
                                 </a>
                             </span>
-                            <a ng-href="/#/request/{{request.ID}}">
-                                <span class="notes">{{request.Notes}}</span>
-                                <span class="name">{{request.FirstName}} {{request.LastName}}</span>
-                                <span class="referenceID pull-right hidden-xs">{{request.ReferenceID}}</span>
+                            <a ng-href="/#/request/{{request.id}}">
+                                <span class="notes">{{request.notes}}</span>
+                                <span class="name">{{request.firstName}} {{request.lastName}}</span>
+                                <span class="referenceID pull-right hidden-xs">{{request.referenceID}}</span>
                             </a>
                         </li>
                     </ul>
