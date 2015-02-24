@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<div ng-controller="headerController">
     <nav class="navbar navbar-default navbar-success" role="navigation">
         <div class="container-fluid">
@@ -30,6 +31,24 @@
                         </ul>
                     </li>
                 </ul>
+=======
+﻿<nav class="navbar navbar-default navbar-success" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-href="#/">
+                <img alt="Brand" src="https://conquestsolutions.blob.core.windows.net/public/conquestLogo.svg" height="35" width="135" />
+            </a>
+            <div class="navbar-left">
+                <h3 id="rqLogo">
+                    Request
+                    <span ng-if="reqStatus == 'loading'">
+                        <i class="fa fa-spin fa-spinner"></i>
+                    </span>
+                    <span ng-if="reqStatus == 'error'">
+                        <i class="fa fa-exclamation-triangle" style="color: #FFE082"></i>
+                    </span>
+                </h3>
+>>>>>>> origin/master
             </div>
         </div>
     </nav>
