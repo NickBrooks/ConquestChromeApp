@@ -14,7 +14,7 @@
     <RootNamespace>ConquestRequestApp</RootNamespace>
     <AssemblyName>ConquestRequestApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -68,7 +68,7 @@
     <Content Include="app\RequestsForm\Templates\requestSingle.html" />
     <Content Include="app\RequestsForm\Templates\requestsList.html" />
     <Content Include="background.js" />
-    <Content Include="Content\app.css" />
+    <Content Include="Content\appStyles.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -77,6 +77,12 @@
     <Content Include="Content\loading-bar.css" />
     <Content Include="Content\material-wfont.min.css" />
     <Content Include="Content\material.min.css" />
+    <Content Include="Content\requestApp.css">
+      <DependentUpon>requestApp.css.bundle</DependentUpon>
+    </Content>
+    <Content Include="Content\requestApp.min.css">
+      <DependentUpon>requestApp.css</DependentUpon>
+    </Content>
     <Content Include="Content\ripples.min.css" />
     <Content Include="Content\snackbar.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -108,6 +114,12 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\appLibraries.js">
+      <DependentUpon>appLibraries.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\appLibraries.min.js">
+      <DependentUpon>appLibraries.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />
@@ -872,6 +884,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\material.min.css.map" />
     <Content Include="Content\ripples.min.css.map" />
+    <Content Include="Content\requestApp.css.bundle" />
+    <Content Include="Scripts\appLibraries.js.bundle" />
+    <Content Include="Scripts\appLibraries.min.js.map">
+      <DependentUpon>appLibraries.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -931,7 +948,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60336</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Requests</IISUrl>
+          <IISUrl>http://localhost:60336/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

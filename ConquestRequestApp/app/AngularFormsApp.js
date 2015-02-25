@@ -19,9 +19,6 @@ function apiURL(apiCtrl) {
     if (host == "localhost") {
         apiURLReturn = "http://localhost/conquestapi/api/" + apiCtrl;
     }
-    else if (host == "paine") {
-        apiURLReturn = "http://paine/" + apiCtrl + '?dataSource=' + apiDataSource
-    }
     else {
         apiURLReturn = apiBaseUrl + apiCtrl + '?dataSource=' + apiDataSource + '&subscription-key=' + apiSubscriptionKey;
     }
